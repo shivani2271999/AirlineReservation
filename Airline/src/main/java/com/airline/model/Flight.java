@@ -2,14 +2,20 @@ package com.airline.model;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "tbl_Flight")
 public class Flight {
 	@Id
 	@SequenceGenerator(name="fli_seqdemo",initialValue=1,allocationSize=1)
@@ -17,11 +23,83 @@ public class Flight {
 	int flightNo;
 	String source;
 	String destination;
-	LocalDate dateOfJourney;
-	Calendar dep = Calendar.getInstance();
-	Calendar arr = Calendar.getInstance();
+	LocalTime departureTime;
+	LocalTime arrivalTime;
+	LocalDate arrivalDate;
+	LocalDate departureDate;
+	int capacity;
+	int priceSeat;
 	
+	public Flight() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	public LocalTime getDepartureTime() {
+		return departureTime;
+	}
+
+
+
+	public void setDepartureTime(LocalTime departureTime) {
+		this.departureTime = departureTime;
+	}
+
+
+
+	public LocalTime getArrivalTime() {
+		return arrivalTime;
+	}
+
+	public void setArrivalTime(LocalTime arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
+
+
+	public LocalDate getArrivalDate() {
+		return arrivalDate;
+	}
+
+
+
+	public void setArrivalDate(LocalDate arrivalDate) {
+		this.arrivalDate = arrivalDate;
+	}
+
+
+
+	public LocalDate getDepartureDate() {
+		return departureDate;
+	}
+
+
+
+	public void setDepartureDate(LocalDate departureDate) {
+		this.departureDate = departureDate;
+	}
+
+
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+
+	public int getPriceSeat() {
+		return priceSeat;
+	}
+
+
+	public void setPriceSeat(int priceSeat) {
+		this.priceSeat = priceSeat;
+	}
+
+
 	public int getFlightNo() {
 		return flightNo;
 	}
@@ -52,37 +130,7 @@ public class Flight {
 	}
 
 
-	public LocalDate getDateOfJourney() {
-		return dateOfJourney;
-	}
-
-
-	public void setDateOfJourney(LocalDate dateOfJourney) {
-		this.dateOfJourney = dateOfJourney;
-	}
-
-
-	public Date getDep() {
-		return dep.getTime();
-	}
-
-
-	public void setDep(Calendar dep) {
-		
-		
-		this.dep = dep;
-	}
-
-
-	public Date getArr() {
-		return arr.getTime();
-	}
-
-
-	public void setArr(Calendar arr) {
-		this.arr = arr;
-	}
-
+	
 //
 //	void setTime(int h,int min,int sec,int mili){
 //	dep.set(Calendar.HOUR_OF_DAY,h);
