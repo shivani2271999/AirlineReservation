@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - Login and registration form</title>
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form #RegisterForm="ngForm" (ngSubmit)="RegisterForm.valid&&validatepassword()&&submit()">
+           <div class="form-group">
+               <label for="n1">First Name</label>
+               <input type="text" class="form-control" [(ngModel)]=user.firstname name="n1"  required minlength="2" #name="ngModel" />
+               <div *ngIf="RegisterForm.submitted  && name.invalid  " class="alert alert-danger">
+                 <div *ngIf="name.errors.required"> Name is required</div>
+                 <div *ngIf="name.errors.minlength"> Name is atleast 2 characters long</div>
+               </div>
+           </div>
+
+        <div class="form-group">
+            <label for="n3">Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]=user.lastname name="n3"  required minlength="1" #lname="ngModel" />
+            <div *ngIf="RegisterForm.submitted  && lname.invalid  " class="alert alert-danger">
+              <div *ngIf="lname.errors.required">LastName is required</div>
+              <div *ngIf="lname.errors.minlength"> LastName is atleast 1 characters long</div>
+            </div>
+        </div>
+     
+           <div class="form-group">
+               <label for="n2">Email Id</label>
+               <input type="email" class="form-control" [(ngModel)]=user.emailId name="n2"  required email #email="ngModel" />
+     
+               <div *ngIf="RegisterForm.submitted &&  email.invalid " class="alert alert-danger">
+                 <div *ngIf="email.errors?.required">E-mail Id is Required</div>
+                 <div *ngIf="email.errors?.email">It should be in format "jason@lti.com"</div>
+               </div>
+     
+           </div>
+
+           <div class="form-group">
+               <label for="n4">Password</label>
+               <input type="password" class="form-control"  name="n4" required password minlength="8" maxlength="14" 
+               [(ngModel)]=cpassword
+               #pass="ngModel"/>
+           </div>
+          
+           <div class="form-group">
+            <label for="n5">Confirm Password</label>
+            <input type="password" class="form-control"  name="n5" required password minlength="8" maxlength="14" 
+            (blur)="validatepassword()"
+             [(ngModel)]=user.password
+             #cpass="ngModel"/>
+             <div id="passpop"></div>
+            <div *ngIf="RegisterForm.submitted && cpass.invalid" class="alert alert-danger">
+                <div *ngIf="cpass.errors.required">password is required</div>
+              <div *ngIf="cpass.errors.minlength"> password is atleast 8 characters long</div>
+              <div *ngIf="cpass.errors.maxlength"> password is atmost 14 characters long</div>
+            </div>
+        </div>
+
+     
+           <div class="form-group">
+               <label for="n6">Gender</label>
+               <select type="text" class="form-control" [(ngModel)]=user.gender #Gender=ngModel required name="n6">
+                <option  value="Male" >Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+                </select>
+                 <div *ngIf="RegisterForm.submitted && Gender.invalid" class="alert alert-danger">
+                 <div *ngIf="Gender.errors?.required">Gender is required</div>
+                 </div>
+           </div>
+     
+           <div class="form-group">
+               <label for="n7">Date of Birth</label>
+               <input type="date" class="form-control" [(ngModel)]=user.dateOfBirth required date name="n7" #date=ngModel />
+               <div *ngIf="RegisterForm.submitted && date.invalid" class="alert alert-danger">
+                <div *ngIf="date.errors?.required">DOB is required</div>
+                </div> 
+            </div>
+           <button type="submit" class="btn btn-primary">Register</button>
+     
+        </form>
+        </div>
+        <br/>
+</body>
+</html>

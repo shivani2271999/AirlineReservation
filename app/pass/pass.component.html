@@ -1,0 +1,48 @@
+<div  id="regis"  >
+
+  <form  #myForm="ngForm" class="form-group" (ngSubmit)="myForm.valid && process()">
+  <div class="from-row" *ngFor="let obj of tickets;let i=index">
+    
+
+    
+    <h2>Passenger Details </h2>
+  
+    <div>
+      <label>Enter Passenger name :</label>
+        <input type="text" 
+        class="form-control" 
+        [(ngModel)]=obj.name 
+        name="t1{{i}}"
+        required
+        minlength="2"
+        #name="ngModel" /><br>
+        <div *ngIf="name.dirty && name.invalid "   class="alert-danger">
+          <div *ngIf="name.errors?.required" >Name is required</div>
+          <div *ngIf="name.errors?.minlength" >Name must be 2 character long</div>
+        </div> 
+
+
+
+    </div>
+
+
+    <div>
+      <label>Enter passanger gender :</label><br>
+      <input type="radio" id="male" value="Male" class="form-check-input" [(ngModel)]=obj.gender name="t4{{i}}" required #gender="ngModel"/>
+      <label for="male">Male</label><br/>
+      <input type="radio" id="Female" value="Female" class="form-check-input" [(ngModel)]=obj.gender name="t4{{i}}" required #gender="ngModel"/>
+      <label for="Female">Female</label><br/>
+      <div *ngIf="gender.dirty && gender.invalid" class="alert-danger">
+        <div *ngIf="gender.errors?.required" >Gender is required</div>
+      </div>
+    </div>
+
+    <div>
+      <label>Enter passanger age :</label>
+      <input type="number" class="form-control"  [(ngModel)]=obj.age name="t5{{i}}" required  #pin="ngModel"/><br/>
+      <div *ngIf="pin.dirty && pin.invalid" class="alert-danger">
+      <div *ngIf="pin.errors?.required">Age is required</div>
+      </div>
+    </div>
+
+    <hr>

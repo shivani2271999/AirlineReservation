@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Login Page
+    </title>
+</head>
+<body>
+    
+<div class="loginbox">
+    <h2>Login Page</h2>
+    <div class="row">
+        <p> &nbsp;</p>
+        <form #LoginForm="ngForm" (ngSubmit)="LoginForm.valid&&checkLogin()">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="n2">Email Id</label>
+                    <input type="email" class="form-control" [(ngModel)]=user.emailId name="n2"  required email #email="ngModel" />
+          
+                    <div *ngIf="LoginForm.submitted &&  email.invalid " class="alert alert-danger">
+                      <div *ngIf="email.errors?.required">E-mail Id is Required</div>
+                      <div *ngIf="email.errors?.email">It should be in format "jason@lti.com"</div>
+                    </div>
+          
+                </div>
+                <div class="form-group">
+                    <label for="n4">Password</label>
+                    <input type="password" class="form-control"  name="n4" required password minlength="8" maxlength="14" 
+                    [(ngModel)]=user.password
+                    #pass="ngModel"/>
+                </div>
+                <input type="submit" name="submit" value="Login"><br>
+                <a href="#">Forgot Password?</a><br>
+                <a [routerLink]="['/registerLink']">Don't Have An Account?</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

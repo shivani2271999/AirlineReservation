@@ -1,0 +1,26 @@
+#regis{
+    width:700px;
+    height:auto;
+    padding:20px;
+    margin: 10px auto;
+    box-shadow:5px 5px lightblue; 
+    border:5px solid black;
+    border-radius:10px;
+    
+}
+h2{
+    text-align: center;
+}
+
+hr {
+    position: relative;
+    top: 20px;
+    border: none;
+    height: 6px;
+    background: black;
+    margin-bottom: 30px;
+}
+
+.vertical-center {
+   text-align: center;
+}

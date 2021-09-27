@@ -1,0 +1,69 @@
+
+    <div class="container">
+
+        
+    <form (ngSubmit)="processs()">
+   
+          
+              <div class="form-group">
+                      <label class="" for="sceneCat">Source</label>
+                        <select class="form-control" id="sceneCat" [(ngModel)]=search.source name="sceneCat-2" >
+                          <option>Choose...</option>
+                          <option value="Mumbai">Chhatrapati Shivaji International Airport-Mumbai</option>
+                          <option value="Bangalore">Kempegowda International Airport-Bangalore</option>
+                          <option value="Chennai">Chennai International Airport-Chennai</option>
+                          <option value="Kolkata">Netaji Subhas Chandra Bose International Airport-Kolkata</option>
+                          <option value="Lucknow">Chaudhary Charan Singh International Airport-Lucknow</option>
+                          <option value="Amritsar">Sri Guru Ram Dass Jee International Airport-Amritsar</option>
+                          <option value="Visakhapatnam">Visakhapatnam International Airport-Visakhapatnam</option>
+                          <option value="Kannur">Kannur International Airport-Kannur</option>
+                          <option value="Delhi">Indira Gandhi International Airport -Delhi</option>
+                          <option value="Goa">Dabolim Airport-Goa</option>
+                          <option value="Coimbatore">Coimbatore International Airport</option>
+                        </select>
+                  </div>
+                
+                  <div class="form-group">
+                    <label class="" for="sceneCat-1">Destination</label>
+                      <select class="form-control" id="sceneCat-1" name="sceneCat-1" [(ngModel)]=search.destination  >
+                        <option>Choose...</option>
+                        <option value="Mumbai">Chhatrapati Shivaji International Airport-Mumbai</option>
+                        <option value="Bangalore">Kempegowda International Airport-Bangalore</option>
+                        <option value="Chennai">Chennai International Airport-Chennai</option>
+                        <option value="Kolkata">Netaji Subhas Chandra Bose International Airport-Kolkata</option>
+                        <option value="Lucknow">Chaudhary Charan Singh International Airport-Lucknow</option>
+                        <option value="Amritsar">Sri Guru Ram Dass Jee International Airport-Amritsar</option>
+                        <option value="Visakhapatnam">Visakhapatnam International Airport-Visakhapatnam</option>
+                        <option value="Kannur">Kannur International Airport-Kannur</option>
+                        <option value="Delhi">Indira Gandhi International Airport -Delhi</option>
+                        <option value="Goa">Dabolim Airport-Goa</option>
+                        <option value="Coimbatore">Coimbatore International Airport</option>
+                      </select>
+                </div>
+
+                
+              
+        
+
+      
+
+                <div class="form-group">
+                    <label for="da">Date</label>
+                    <input type="date" class="form-control" id="da"
+                           required  [(ngModel)]="search.date" name="name">
+                        
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pass">Number of Passengers</label>
+                            <input type="text" class="form-control" id="pass"
+                                   required  [(ngModel)]="search.passenger" name="name">
+                                
+                        </div>
+                      
+                        <button type="submit" class="btn btn-primary" id="button" > Submit</button>
+                        
+</form>
+
+<div>
+
